@@ -1,6 +1,8 @@
 # Build artifacts
 *.o
 *.obj
+# ...but never ignore anything inside the bundled toolchain
+!tools/mingw/**
 
 # lab*.exe and msmpi.dll are intentionally NOT ignored:
 # they are committed so labs can be run on machines without a compiler.
