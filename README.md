@@ -1,13 +1,13 @@
 # parallel-labs
 
-Portable MPI labs for Windows. No system-wide installation required to **run**.
+Portable MPI labs for Windows. No system-wide installation required to **build or run**.
 
 ## Structure
 
 ```
 parallel-labs/
 ├── tools/
-│   ├── mingw/         (gitignored — optional compiler, see below)
+│   ├── mingw/         (committed — w64devkit 2.8.0, portable compiler)
 │   └── msmpi/         (committed — headers, lib, mpiexec, msmpi.dll)
 ├── lab1/
 │   ├── lab1.cpp
@@ -20,26 +20,26 @@ parallel-labs/
 └── README.md
 ```
 
-## Quick start (run only, no compiler needed)
+## Quick start
 
 ```bat
-git clone <repo-url>
+git clone https://github.com/DeboshCode/parallel-labs.git
 cd parallel-labs\lab1
 .\ran.bat
 ```
 
-`lab1.exe` and `msmpi.dll` are included. `ran.bat` uses the bundled
-`mpiexec.exe` from `tools\msmpi\bin\` — no system PATH required.
+`lab1.exe`, `msmpi.dll` and `mpiexec.exe` are included in the repo.
+No compiler or MS-MPI installation needed on the target machine.
 
 ## Working with a specific lab
 
 ```bat
 cd labN
-.\build.bat    :: compile labN.cpp -> labN.exe
-.\ran.bat      :: run with 4 MPI processes
+.\build.bat    :: compile labN.cpp -> labN.exe  (uses bundled w64devkit)
+.\ran.bat      :: run with 4 MPI processes       (uses bundled mpiexec)
 ```
 
-Both scripts look for tools one level up (`%~dp0..\tools\`):
+Both scripts search for tools one level up (`%~dp0..\tools\`):
 - **build.bat**: bundled w64devkit → system g++ → error
 - **ran.bat**: bundled mpiexec → system MPI → PATH → error
 
@@ -63,13 +63,3 @@ cd lab2
 .\build.bat
 .\ran.bat
 ```
-
-## Optional: set up bundled compiler (w64devkit)
-
-Lets you rebuild on machines without any compiler installed.
-
-1. Download `w64devkit-x64-*.7z.exe` from:
-   https://github.com/skeeto/w64devkit/releases/latest
-2. Run it and set the output folder to `<repo root>\tools\mingw\`
-   so that `tools\mingw\w64devkit\bin\g++.exe` exists.
-3. `tools\mingw\` is listed in `.gitignore` — it won't be committed.
