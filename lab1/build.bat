@@ -12,6 +12,7 @@ set "MSMPI_LIB=%ROOT%\tools\msmpi\lib\x64"
 
 if exist "%ROOT%\tools\mingw\w64devkit\bin\g++.exe" (
     set "GPP=%ROOT%\tools\mingw\w64devkit\bin\g++.exe"
+    set "PATH=%ROOT%\tools\mingw\w64devkit\bin;%PATH%"
     echo [build] Using bundled g++ ^(w64devkit^)
 ) else (
     where g++ >nul 2>&1
@@ -23,7 +24,7 @@ if exist "%ROOT%\tools\mingw\w64devkit\bin\g++.exe" (
     echo [build] Using system g++
 )
 
-"%GPP%" "%SRC%" -o "%OUT%" -I"%MSMPI_INC%" -L"%MSMPI_LIB%" -lmsmpi
+"%GPP%" "%SRC%" -o "%OUT%" -I"%MSMPI_INC%" -L"%MSMPI_LIB%" -lmsmpi -static-libgcc -static-libstdc++
 if errorlevel 1 (
     echo [build] FAILED.
     exit /b 1
