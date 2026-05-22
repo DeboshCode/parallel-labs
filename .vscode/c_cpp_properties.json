@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "w64devkit (bundled)",
+            "compilerPath": "${workspaceFolder}/tools/mingw/w64devkit/bin/g++.exe",
+            "compilerArgs": [],
+            "includePath": [
+                "${workspaceFolder}/tools/msmpi/include",
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-gcc-x64"
+        }
+    ],
+    "version": 4
+}
