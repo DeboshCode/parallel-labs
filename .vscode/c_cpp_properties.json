@@ -5,8 +5,7 @@
             "compilerPath": "${workspaceFolder}/tools/mingw/w64devkit/bin/g++.exe",
             "compilerArgs": [],
             "includePath": [
-                "${workspaceFolder}/tools/msmpi/include",
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/tools/msmpi/include"
             ],
             "defines": [],
             "cStandard": "c17",

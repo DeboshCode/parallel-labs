@@ -1,0 +1,11 @@
+{
+    "files.watcherExclude": {
+        "**/tools/mingw/**": true
+    },
+    "search.exclude": {
+        "**/tools/mingw/**": true
+    },
+    "C_Cpp.files.exclude": {
+        "**/tools/mingw/**": true
+    }
+}
